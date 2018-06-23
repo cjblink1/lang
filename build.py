@@ -14,5 +14,6 @@ default_task = "publish"
 
 @init
 def set_properties(project):
+    project.depends_on('antlr4-python3-runtime')
     project.build_depends_on('mockito')
     project.set_property('teamcity_output', 'True')
