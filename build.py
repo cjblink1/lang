@@ -16,4 +16,5 @@ default_task = "publish"
 def set_properties(project):
     project.depends_on('antlr4-python3-runtime')
     project.build_depends_on('mockito')
-    project.set_property('teamcity_output', 'True')
+    project.set_property('teamcity_output', True)
+    project.set_property('coverage_break_build', False)
