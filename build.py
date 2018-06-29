@@ -9,7 +9,7 @@ use_plugin("python.distutils")
 
 
 name = "lang"
-default_task = "publish"
+default_task = ["install_dependencies", "publish", "install"]
 
 
 @init
@@ -18,3 +18,4 @@ def set_properties(project):
     project.build_depends_on('mockito')
     project.set_property('teamcity_output', True)
     project.set_property('coverage_break_build', False)
+    project.set_property('distutils_console_scripts', ['LET=let.interpreter:main', 'PROC=proc.interpreter:main'])
