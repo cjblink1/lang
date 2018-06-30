@@ -1,6 +1,6 @@
 
 from let.environment import Environment
-from let.values import *
+from let.value import *
 
 
 class Expression(object):
@@ -24,7 +24,7 @@ class ProgramExpression(Expression):
         return "body = {0}".format(self.body)
 
     def evaluate(self, environment: Environment) -> ExpressedValue:
-        self.body.evaluate(environment)
+        return self.body.evaluate(environment)
 
 
 class ConstantExpression(Expression):
@@ -110,7 +110,7 @@ class LetExpression(Expression):
         self.body = body
 
     def string_representation(self):
-        return "variable = {0}, bound-expression = {1}, body = ".format(self.variable, self.bound_expression, self.body)
+        return "variable = {0}, bound-expression = {1}, body = {2)".format(self.variable, self.bound_expression, self.body)
 
     def evaluate(self, environment: Environment):
         bound_value = self.bound_expression.evaluate(environment)
